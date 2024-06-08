@@ -93,4 +93,4 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
 ## 📝 Licença
 
-Esse projeto está sob licença. Veja o arquivo [LICENÇA](https://github.com/R2DWess/RTPTextual/blob/main/LICENSE) para mais detalhes.
+Esse projeto está sob licença. Veja o arquivo [LICENÇA](https://github.com/pdrhp/AT3-N2-Coletiva-Front-End/blob/main/LICENSE) para mais detalhes.
