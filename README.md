@@ -81,7 +81,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
     <td align="center">
       <a href="#" title="defina o titulo do link">
-        <img src="https://media.licdn.com/dms/image/D4E03AQH7DooITDfsKQ/profile-displayphoto-shrink_400_400/0/1688525101280?e=1721865600&v=beta&t=tksNGtTdjl9WKAeYuDj4gZL0_GgSeEYhgdTpz1omEv4" width="100px;" alt="Foto do Steve Jobs"/><br>
+        <img src="https://media.licdn.com/dms/image/D4E03AQH7DooITDfsKQ/profile-displayphoto-shrink_400_400/0/1688525101280?e=1721865600&v=beta&t=tksNGtTdjl9WKAeYuDj4gZL0_GgSeEYhgdTpz1omEv4" width="99px;" alt="Foto do Steve Jobs"/><br>
         <sub>
           <b>Pedro Cesar</b>
         </sub>
