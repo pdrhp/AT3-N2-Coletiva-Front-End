@@ -14,7 +14,7 @@ const MainContent = () => {
     <Card className='flex-1 border-primary'>
       <CardContent className='h-[100%] flex justify-center flex-wrap overflow-y-auto p-1 gap-3'>
         {livros ? livros.map((livro, index) => (
-          <LivroCard key={index} />
+          <LivroCard livro={livro} key={index} />
         )) : <span>Não foram encontrados livros</span>}
       </CardContent>
     </Card>
