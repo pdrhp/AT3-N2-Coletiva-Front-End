@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from 'react'
-import { Card, CardContent, CardHeader } from './ui/card'
-import { Button } from './ui/button'
-import { Plus } from 'lucide-react'
-import LivroCard from './LivroCard'
-import useLivrosData from '@/hook/useLivrosData'
-import EditFilmeDialog from './EditFilmeDialog'
+import useLivrosData from '@/hook/useLivrosData';
+import Livro from '@/interfaces/Livro';
+import LivroCard from './LivroCard';
+import { Card, CardContent } from './ui/card';
 
-const MainContent = () => {
 
-  const { data: livros, isError, isLoading } = useLivrosData();
-  const [openEditDialog, setOpenEditDialog] = useState(false);
+type MainContentProps = {
+  handleEdit: (livro?: Livro) => void;
+}
 
-  const handleEdit = () => {
-    setOpenEditDialog(true);
-  }
+const MainContent: React.FC<MainContentProps> = ({handleEdit}) => {
+
+  const { data: livros } = useLivrosData();
+
+ 
 
 
   return (
@@ -22,7 +21,6 @@ const MainContent = () => {
         {livros ? livros.map((livro, index) => (
           <LivroCard handleEdit={handleEdit} livro={livro} key={index} />
         )) : <span>Não foram encontrados livros</span>}
-        <EditFilmeDialog open={openEditDialog} setOpen={setOpenEditDialog} />
       </CardContent>
     </Card>
   )
