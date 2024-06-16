@@ -1,12 +1,12 @@
-import React from 'react'
-import { Card } from './ui/card'
 import Livro from '@/interfaces/Livro'
-import { Button } from './ui/button'
 import { Pencil, X } from 'lucide-react'
+import React from 'react'
+import { Button } from './ui/button'
+import { Card } from './ui/card'
 
 type LivroCardProps = {
   livro: Livro;
-  handleEdit: () => void;
+  handleEdit: (livro?: Livro ) => void;
 }
 
 
@@ -20,7 +20,7 @@ const LivroCard: React.FC<LivroCardProps> = ({ livro, handleEdit }) => {
         <p>{livro.genero}</p>
       </div>
       <div className='flex gap-3 justify-center'>
-        <Button onClick={() => handleEdit()} variant={"outline"} className="h-12 w-12">
+        <Button onClick={() => handleEdit(livro)} variant={"outline"} className="h-12 w-12">
           <Pencil className="h-6 w-6" />
         </Button>
         <Button variant={"outline"} className="h-12 w-12">

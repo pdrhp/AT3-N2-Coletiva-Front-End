@@ -1,12 +1,16 @@
-import React from 'react'
-import { Form, FormField } from './ui/form'
-import { z } from 'zod'
-import { useForm } from 'react-hook-form'
+import Livro from '@/interfaces/Livro'
+import { createLivro, updateLivro } from '@/services/livroService'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useMutation } from '@tanstack/react-query'
+import { useEffect } from 'react'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
 import FormInput from './FormInput'
 import { Button } from './ui/button'
+import { Form } from './ui/form'
 
 const FormFilmeSchema = z.object({
+    id: z.number(),
     titulo: z.string(),
     genero: z.string(),
     autor: z.string(),
@@ -14,24 +18,44 @@ const FormFilmeSchema = z.object({
     capa: z.string()
 })
 
-const FormFilme = () => {
+type FormFilmeProps = {
+    livro?: Livro
+}
 
-    const formFilme = useForm({
+type FormFilmeSchema = z.infer<typeof FormFilmeSchema>;
+
+
+const FormLivro: React.FC<FormFilmeProps> = ({livro}) => {
+
+    const formFilme = useForm<FormFilmeSchema>({
         resolver: zodResolver(FormFilmeSchema),
         defaultValues: {
-            titulo: '',
-            genero: '',
-            autor: '',
-            quantidade: 0,
+            id: livro?.id || 0,
+            titulo: livro?.titulo || '',
+            genero: livro?.genero || '',
+            autor: livro?.autor || '',
+            quantidade: livro?.quantidade || 0,
             capa: ''
         }
     })
 
-    const { control } = formFilme;
+    const {mutate, isPending, isSuccess, isError} = useMutation({
+        mutationFn: livro?.id ? createLivro: updateLivro
+    })
+
+    useEffect(() => {
+
+    }, [isSuccess, isError])
+    
+    const formSubmit = (data: FormFilmeSchema) => {
+        mutate(data as Livro)
+    }
+
+    const { control, handleSubmit } = formFilme;
 
     return (
         <Form {...formFilme}>
-            <form className="flex flex-col gap-8">
+            <form onSubmit={handleSubmit(formSubmit)} className="flex flex-col gap-8">
                 <div className='flex flex-col gap-3'>
                     <FormInput control={control} name='titulo' label='Titulo' inputType='text' />
                     <FormInput control={control} name='genero' label='Genero' inputType='text' />
@@ -49,4 +73,4 @@ const FormFilme = () => {
     )
 }
 
-export default FormFilme
+export default FormLivro
