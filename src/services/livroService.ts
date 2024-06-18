@@ -19,3 +19,18 @@ export const updateLivro = async (livro: Livro): Promise<Response<Livro>> => {
     return response.data;
 }
 
+export const deleteLivro = async (id: number): Promise<Response<boolean>> => {
+    const response = await client.delete(`/livros/${id}`);
+    return response.data;
+}
+
+export const buyALivro = async (id: number): Promise<Response<boolean>> => {
+    const response = await client.post(`/livros/buy/${id}`);
+    return response.data;
+}
+
+export const addALivro = async (id: number): Promise<Response<boolean>> => {
+    const response = await client.post(`/livros/add/${id}`);
+    return response.data;
+}
+

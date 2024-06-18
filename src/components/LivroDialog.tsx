@@ -14,7 +14,7 @@ const LivroFormDialog: React.FC<EditFilmeDialogProps> = ({ open, setOpen, actual
     return (
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogContent className='w-[50%] h-[70%]'>
-                <FormLivro livro={actualLivro}/>
+                <FormLivro setOpen={setOpen} livro={actualLivro}/>
             </DialogContent>
         </Dialog>
     )

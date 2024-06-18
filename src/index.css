@@ -38,6 +38,36 @@
     @apply bg-background text-foreground;
   }
 
+  .animate-up{
+    animation: slideUp 0.5s forwards;
+  }
+
+  .animate-down{
+    animation: slideDown 0.5s forwards;
+  }
+
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 ::-webkit-scrollbar {

@@ -3,7 +3,8 @@ interface Livro {
     titulo: string,
     autor: string,
     genero: string,
-    quantidade: number
+    quantidade: number,
+    capa: string
 }
 
 export default Livro;
